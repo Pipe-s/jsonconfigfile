@@ -11,7 +11,7 @@ overloadForCustomPackage()
 				return 0			
 		fi
 		if [[ -n "${customPackages[$1]}" ]]; then
-			PACKAGE=${customPackages[$1]}
+			PACKAGE="--process-dependency-links ${customPackages[$1]}"
 			return 0
 		fi
 		echo "here1"
