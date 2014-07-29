@@ -36,6 +36,6 @@ setup(name='jsonconfigfile',
       install_requires=[
                         "singleton3",
                        ],
-      dependency_links=['git+git://github.com/pipe-s/Singleton.git#egg=singleton3-1.0.0']
+      dependency_links=['git+git://github.com/pipe-s/singleton3.git#egg=singleton3-1.0.0']
       )
 
