@@ -1,5 +1,5 @@
 declare -A customPackages=(
- [singleton3]='git+https://github.com/pipe-s/Singleton.git#egg=singleton3'
+ [singleton3]='git+https://github.com/pipe-s/singleton3.git#egg=singleton3'
 )
 
 overloadForCustomPackage()
