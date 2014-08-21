@@ -18,7 +18,9 @@ if os.path.exists('README.md'):
 setup(name='jsonconfigfile',
       version='1.0',
       maintainer='Luke Woydziak',
-      url = 'https://github.com/Pipe-s/Singleton',
+      maintainer_email='lwoydziak@gmail.com",
+      url = 'https://github.com/Pipe-s/jsonconfigfile',
+      download_url = 'https://github.com/Pipe-s/jsonconfigfile/tarball/1.0',
       platforms = ["any"],
       description = 'Python package for importing configuration from a JSON file.',
       long_description = read('README.txt'),
@@ -36,6 +38,5 @@ setup(name='jsonconfigfile',
       install_requires=[
                         "singleton3",
                        ],
-      dependency_links=['git+git://github.com/pipe-s/singleton3.git#egg=singleton3-1.0.0']
       )
 

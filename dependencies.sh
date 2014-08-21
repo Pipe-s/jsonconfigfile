@@ -1,24 +1,3 @@
-declare -A customPackages=(
- [singleton3]='git+https://github.com/pipe-s/singleton3.git#egg=singleton3'
-)
-
-overloadForCustomPackage()
-{
-		{
-		if $(cat -s ~/.pip/pip.conf | grep localhost &> /dev/null); then
-				echo "Here"
-				PACKAGE=$1
-				return 0			
-		fi
-		if [[ -n "${customPackages[$1]}" ]]; then
-			PACKAGE="--process-dependency-links ${customPackages[$1]}"
-			return 0
-		fi
-		echo "here1"
-		PACKAGE=$1
-		} &> /dev/null
-}
-
 /bin/rm -f .pipPackageList
 pip3 freeze > .pipPackageList
 
@@ -28,14 +7,12 @@ do
         case $? in
         1)
                 echo "Python package $P not found, installing..."
-        		overloadForCustomPackage $P
-		    	y="pip3 install $PACKAGE"
+		    	y="pip3 install $P"
         		$y
                 ;;
         2)
                 echo "Python package $P needs upgrade, upgrading..."
-        		overloadForCustomPackage $P
-        		y="pip3 install --upgrade $PACKAGE"
+        		y="pip3 install --upgrade $P"
         		$y
                 ;;
         esac
